@@ -47,6 +47,7 @@ ylabel('Gain');
 xlabel('Incident angle');
 set(gcf,'color','w');
 legend('beampattern','beampattern without side-lobe');
+title('reference beambattern for line array')
 set(gca,'FontSize', 12);
 BP = BP_ML;
 %%

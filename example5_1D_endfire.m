@@ -40,8 +40,9 @@ figure();
 plot(abs(BP));
 ylabel('Gain');
 xlabel('Incident angle');
+title('reference beambattern for line array')
 set(gcf,'color','w');
-
+%%
 
 FI = zeros(Nphi,Nf);
 figure()
