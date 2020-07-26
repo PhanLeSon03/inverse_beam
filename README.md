@@ -1,6 +1,6 @@
-# Apply invese Beamforming function to design broadband beamforming 
+# Apply invese Beamforming function to design the broadband beamforming 
 
-** Some examples for 2D-arrays and 1D-array with broadband beamforming**.
+** Some examples for 2D-arrays and 1D-arrays with broadband beamforming**.
 
     1. Planar array (example1_2D_cone.m), reference beampattern has only main-lobe.
     
