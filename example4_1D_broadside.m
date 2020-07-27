@@ -2,22 +2,22 @@ clear;
 clc;
 Nfft = 256;               % FFT length used to implement FFT filterbank
 Nfh = Nfft/2+1;           % number of frequency points in [0,Fs/2]
-Fs = 24000;
+Fs = 48000;
 Fsh = Fs/2;
-fl = 2400;                 % lower and upper cutoff frequencies of filterbank
-fu = 12000;
+fl = 350;                 % lower and upper cutoff frequencies of filterbank
+fu = 20000;
 klow = round(fl/Fsh*Nfh);
 kup = round(fu/Fsh*Nfh);
 f = Fsh/Nfh*(klow:kup)';  % frequencies used to compute T and W
 Nf = length(f);
 N = 101;                   % number of microphone
-dH = 0.0282/8;            % minimum sensor distance in m
+dH = 0.01;            % minimum sensor distance in m
 gamma = 1;
 numCluster = 5;
 numPrsnt = 2;
 
 
-c = 340;                 % speed of sound in m/s
+c = 343.2;                 % speed of sound in m/s
 f_test = 2000;
 
 x_map = zeros(N,Nf);
@@ -39,16 +39,17 @@ BP_ML = zeros(1,length(BP));
 BP_ML(69:112) = BP(69:112); 
 figure();
 
-plot(abs(BP));
+plot(theta*180/pi,abs(BP));
 
 hold on 
-plot(abs(BP_ML),'*r');
+plot(theta*180/pi,abs(BP_ML),'*r');
 ylabel('Gain');
-xlabel('Incident angle');
+xlabel('Incident angle (\theta)');
 set(gcf,'color','w');
-legend('beampattern','beampattern without side-lobe');
-title('reference beambattern for line array')
+legend('BP with side-lobe','BP without side-lobe');
+title('reference BP for line array')
 set(gca,'FontSize', 12);
+axis tight
 BP = BP_ML;
 %%
 FI = zeros(Ntheta,Nf);
@@ -112,4 +113,22 @@ zlabel('Magnitude');
 grid on
 set(gcf,'color','w');
 
+figure()
+k_p = round((16000-fl)/Fsh*Nfh)+1;
+p = linspace(-pi, pi, 360);
+dBmin = -50;
+R_ref = abs([BP BP(end:-1:1)])';
+RdB = max(dBmin,20*log10(R_ref));
+polarplot(p,RdB','k'); 
 
+hold on
+
+R = abs([FI(end:-1:1,k_p);FI(:,k_p)]);
+RdB = max(dBmin,20*log10(R)) ;
+polarplot(p,RdB','--r'); 
+
+axis tight;
+%title(Plot_Title(iConfig));
+set(gca,'FontSize', 12);
+legend('expected BP','real BP');
+set(gcf,'color','w');

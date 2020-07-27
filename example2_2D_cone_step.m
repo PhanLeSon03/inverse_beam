@@ -14,7 +14,7 @@ kTOH = floor(fHigh/fStep);
 f = fStep*(kTUH:kTOH);       % frequencies used to compute W
 % Beamformer
 N = 100;
-n1 = -(N-1)/2:1:(N-1)/2;
+n1 = -N/2:1:(N-2)/2;
 n2 = n1;
 [n1,n2] = meshgrid(n1,n2);
 aux=sqrt(n1.^2+n2.^2);
@@ -66,12 +66,16 @@ for k=kTUH:kTOH
     Hd = filter2(LPW,Hd,'same');
 
      mesh(n1,n2,Hd)
-     axis off
+     %axis off
 
     h =fftshift(ifft2(rot90(fftshift(rot90(Hd,2)),2)));
+    
     h=h/sum(sum(h));
     W_2D(:,:,k-kTUH+1) = h;
     set(gcf,'color','w');
+    xlabel('u')
+    ylabel('v')
+    zlabel('gain')
  pause(0.05);
 end
 set(gcf,'color','w');
@@ -81,7 +85,7 @@ for iMic=1:N
       W((iMic-1)*N+jMic,:) = (W_2D(iMic,jMic,:));
    end
 end
-
+%%
 %verify the beam pattern ==================================================
 % Full array
 mics_ref = zeros(N*N,2);
