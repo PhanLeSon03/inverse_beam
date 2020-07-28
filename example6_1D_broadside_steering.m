@@ -55,6 +55,7 @@ axis tight
 BP = BP_ML;
 %%
 FI = zeros(Ntheta,Nf);
+WNG = zeros(Nf,1);
 figure()
 
 for i=1:Nf
@@ -99,10 +100,40 @@ for i=1:Nf
   %beam plot
   beta = 2*pi*f(i)/c;             % wave number
   D = exp(1j*beta*x_array(ones(1,Ntheta),:).*sin(theta0(ones(N,1),:))');
-  FI(:,i) = (D*(h));     
+  FI(:,i) = (D*(h)); 
+  WNG(i) = h'*h;
 end
 %%
+Plot_Color = {'r', 'g', 'b', 'k'};
+Marker = {
+'*' ,... %Asterisk
+'x' ,... %Cross
+'^' ,... %Upward-pointing triangle
+'v' ,... %Downward-pointing triangle
+'>' ,... %Right-pointing triangle
+'<' ,... %Left-pointing triangle   
+'square' ,... %or 's'   Square
+'diamond' ,... %or 'd'  Diamond
+'o' ,... %Circle
+'pentagram' ,... %or 'p'  Five-pointed star (pentagram)
+'hexagram' ,... %or 'h'''  Six-pointed star (hexagram)
+'none',...  %No marker (default)
+'+',... %  Plus sign
+'.'  %Point
+};
+
 pos = [0.5 0.5 0.4 0.4];
+figure('numbertitle','off','name','White Noise Gain','Units','normal',...
+       'Position',pos);
+plot(f,10*log10(1./WNG),strcat('-',Plot_Color{1},Marker{1}),'MarkerEdgeColor',Plot_Color{1});
+xlabel('frequency in Hz');
+ylabel('White Noise Gain in dB');
+legend('WNG');
+set(gca,'FontSize', 12);
+axis tight
+set(gcf,'color','w');
+
+pos(1) = pos(1) +0.1;
 
 figure('numbertitle','off','name','beam pattern of full array',...
       'Units','normal','Position',pos);

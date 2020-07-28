@@ -5,63 +5,71 @@
     1. Planar array (example1_2D_cone.m), reference beampattern has only main-lobe.
     
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_ref.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_ref.PNG" width="200" title="">    
 </p>
 
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_BP.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_BP.PNG" width="200" title="">    
 </p>
 
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone.PNG" width="200" title="">    
 </p>
 
     2. Planar array (example1_2D_cone_step.m).
     
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_step_ref.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_step_ref.PNG" width="200" title="">    
 </p>
 
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_step_BP.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_step_BP.PNG" width="200" title="">    
 </p>
 
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_step.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_cone_step.PNG" width="200" title="">    
 </p>
 
     3. Planar array (example1_2D_sinc.m).
     
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_sinc_ref.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_sinc_ref.PNG" width="200" title="">    
 </p>
 
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_sinc_BP.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_sinc_BP.PNG" width="200" title="">    
 </p>
 
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_sinc.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/2D_sinc.PNG" width="200" title="">    
 </p>
 
 
     4. Broadside line array (example4_1D_broadside.m), reference beampattern without side-lobe.
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_broadside_ref.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_broadside_ref.PNG" width="200" title="">    
 </p>
 
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_broadside.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_broadside.PNG" width="200" title="">    
 </p>
-
 
 
 
     5. Endfire line array (example5_1D_endfire.m).
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_endfire_ref.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_endfire_ref.PNG" width="200" title="">    
 </p>
 
 <p align="center">   
-<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_endfire.PNG" width="400" title="Inverse Beam">    
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_endfire.PNG" width="200" title="">    
+</p>
+
+    4. Broadside line array (example4_1D_broadside.m), reference beampattern without side-lobe steering to -70 degree.
+<p align="center">   
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_broadside_ref_steering.PNG" width="200" title="">    
+</p>
+
+<p align="center">   
+<img src="https://github.com/PhanLeSon03/inverse_beam/blob/master/images/1D_broadside_steering.PNG" width="200" title="">    
 </p>

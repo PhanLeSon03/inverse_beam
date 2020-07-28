@@ -59,6 +59,7 @@ alph = x(2)./t(2);
 figure(1)
 Sphere = ones(100,120);
 B_REF = zeros(100,120);
+
 %calculate the weight for broadband beamformer ============================
 for k=kTUH:kTOH
 
@@ -67,7 +68,9 @@ for k=kTUH:kTOH
     temp = aux/Rc;    
     temp1 = alph*pi*asin(temp);
     temp2 = abs(sin(temp1)./(temp1));
-    temp2(boudary)=0;
+    %idxBound = floor((N-Rc)/2);
+    %temp2(boudary)=temp2(idxBound+1,floor(N/2)+1);
+    temp2(boudary)= 0;
     Hd = (temp2);
     Hd(N/2+1,N/2+1)=1;
 
@@ -98,7 +101,7 @@ for k=kTUH:kTOH
     h =fftshift(ifft2(rot90(fftshift(rot90(Hd,2)),2)));
 
     W_2D(:,:,k-kTUH+1) = h;
-
+    
     pause(0.05);
 end
 
@@ -108,8 +111,41 @@ for iMic=1:N
       W((iMic-1)*N+jMic,:) = (W_2D(iMic,jMic,:));
    end
 end
-
+%%
 %verify the beam pattern ==================================================
+%White Noise Gain
+WNG = zeros(kTOH-kTUH+1,1);
+for i=1:kTOH-kTUH+1
+   WNG(i) =  W(:,i)'*W(:,i);
+end
+
+Plot_Color = {'r', 'g', 'b', 'k'};
+Marker = {
+'*' ,... %Asterisk
+'x' ,... %Cross
+'^' ,... %Upward-pointing triangle
+'v' ,... %Downward-pointing triangle
+'>' ,... %Right-pointing triangle
+'<' ,... %Left-pointing triangle   
+'square' ,... %or 's'   Square
+'diamond' ,... %or 'd'  Diamond
+'o' ,... %Circle
+'pentagram' ,... %or 'p'  Five-pointed star (pentagram)
+'hexagram' ,... %or 'h'''  Six-pointed star (hexagram)
+'none',...  %No marker (default)
+'+',... %  Plus sign
+'.'  %Point
+};
+pos = [0.5 0.5 0.4 0.4];
+figure('numbertitle','off','name','White Noise Gain','Units','normal',...
+       'Position',pos);
+plot(f,10*log10(1./WNG),strcat('-',Plot_Color{1},Marker{1}),'MarkerEdgeColor',Plot_Color{1});
+xlabel('frequency in Hz');
+ylabel('White Noise Gain in dB');
+legend('WNG');
+set(gca,'FontSize', 12);
+axis tight
+set(gcf,'color','w');
 
 % Full array
 mics_ref = zeros(N*N,2);

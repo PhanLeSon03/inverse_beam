@@ -87,6 +87,41 @@ for iMic=1:N
 end
 %%
 %verify the beam pattern ==================================================
+%White Noise Gain
+WNG = zeros(kTOH-kTUH+1,1);
+for i=1:kTOH-kTUH+1
+   WNG(i) =  W(:,i)'*W(:,i);
+end
+
+Plot_Color = {'r', 'g', 'b', 'k'};
+Marker = {
+'*' ,... %Asterisk
+'x' ,... %Cross
+'^' ,... %Upward-pointing triangle
+'v' ,... %Downward-pointing triangle
+'>' ,... %Right-pointing triangle
+'<' ,... %Left-pointing triangle   
+'square' ,... %or 's'   Square
+'diamond' ,... %or 'd'  Diamond
+'o' ,... %Circle
+'pentagram' ,... %or 'p'  Five-pointed star (pentagram)
+'hexagram' ,... %or 'h'''  Six-pointed star (hexagram)
+'none',...  %No marker (default)
+'+',... %  Plus sign
+'.'  %Point
+};
+pos = [0.5 0.5 0.4 0.4];
+figure('numbertitle','off','name','White Noise Gain','Units','normal',...
+       'Position',pos);
+plot(f,10*log10(1./WNG),strcat('-',Plot_Color{1},Marker{1}),'MarkerEdgeColor',Plot_Color{1});
+xlabel('frequency in Hz');
+ylabel('White Noise Gain in dB');
+legend('WNG');
+set(gca,'FontSize', 12);
+axis tight
+set(gcf,'color','w');
+
+
 % Full array
 mics_ref = zeros(N*N,2);
 for yPos = 1: N
